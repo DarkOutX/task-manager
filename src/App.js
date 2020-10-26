@@ -1,27 +1,13 @@
-import React from 'react';
 import './App.css';
-import Board from './components/Board.js';
-import BoardAdder from './components/Board.js';
+import Boards from './components/Boards.js';
+import BoardAdder from './components/BoardAdder.js';
 
-class App extends React.Component {
-  state = {
-    boards: [
-      {
-        name: "My board",
-        id: 1,
-      },
-      {
-        name: "My Another board",
-        id: 2,
-      },
-    ],
-  };
 
-  render() {
-    return <div className="App">
-            App
-           </div>
-  };
-}
+const App = () => (
+  <div className="App">
+    <BoardAdder />
+    <Boards />
+  </div>
+)
 
 export default App;
