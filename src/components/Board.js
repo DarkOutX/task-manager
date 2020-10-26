@@ -1,14 +1,15 @@
-import { connect } from 'react-redux'
 import Task from './Task'
 import TaskAdder from './TaskAdder'
 
 const Board = ({ id, name, tasks }) => {
   return (
     <div className="board">
-    	{name}
-    	{tasks.map(task => (
-    		<Task key={task.id} {...task} />
-		))}
+    	<h4>{name}</h4>
+    	<ul>
+	    	{tasks.map(task => (
+	    		<Task key={task.id} {...task} />
+			))}
+		</ul>
 		<TaskAdder boardId={id} />
     </div>
   );

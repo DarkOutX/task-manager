@@ -1,7 +1,3 @@
-let initialState = {
-  boards: [],
-  tasks: [],
-};
 const tasks = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TASK':

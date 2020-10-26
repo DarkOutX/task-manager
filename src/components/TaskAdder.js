@@ -5,7 +5,7 @@ const TaskAdder = ({ dispatch, boardId }) => {
   let input
 
   return (
-    <div>
+    <div className="task-adder">
       <form
         onSubmit={e => {
           e.preventDefault()

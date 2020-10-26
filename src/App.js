@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import Boards from './components/Boards.js';
 import BoardAdder from './components/BoardAdder.js';
 
