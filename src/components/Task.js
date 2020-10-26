@@ -1,10 +1,10 @@
 import React from 'react';
 // import "./MyComponent.css"
 
-const Task = () => {  
+const Task = ({ text }) => {  
   return (
-    <div>
-
+    <div className="task">
+    	{text}
     </div>
   );
 }
