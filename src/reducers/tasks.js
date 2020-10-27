@@ -9,6 +9,16 @@ const tasks = (state = [], action) => {
           text: action.text
         }
       ]
+    case 'DELETE_TASK':
+      return state.filter(t => t.id !== action.id);
+    case 'EDIT_TASK':
+      return state.map(t =>
+        t.id === action.id ? { ...t, text: action.text } : t
+      )
+    case 'TOGGLE_TASK':
+      return state.map(t =>
+        t.id === action.id ? { ...t, done: !t.done } : t
+      )
     default:
       return state
   }

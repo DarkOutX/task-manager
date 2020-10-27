@@ -1,13 +1,22 @@
 import Task from './Task'
 import TaskAdder from './TaskAdder'
+import { connect } from 'react-redux'
+import { deleteTask } from '../actions'
 
-const Board = ({ id, name, tasks }) => {
+const Board = ({ id, name, tasks, dispatch }) => {
   return (
     <div className="board">
     	<h4>{name}</h4>
     	<ul>
 	    	{tasks.map(task => (
-	    		<Task key={task.id} {...task} />
+	    		<Task 
+	    			key={task.id} 
+	    			{...task}
+	    			isEditing={true}
+	    			onClick={(e) => {}}
+	    			onEditClick={(e) => {}}
+	    			onDeleteClick={(e) => {}}  
+    			/>
 			))}
 		</ul>
 		<TaskAdder boardId={id} />
@@ -15,4 +24,4 @@ const Board = ({ id, name, tasks }) => {
   );
 }
 
-export default Board;
+export default connect()(Board)

@@ -8,6 +8,8 @@ const boards = (state = [], action) => {
           name: action.name
         }
       ]
+    case 'DELETE_BOARD':
+      return state.filter(t => t.id != action.id);
     default:
       return state
   }

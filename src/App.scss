@@ -38,3 +38,23 @@ body {
 		}
 	}
 }
+
+.task {
+	position: relative;
+	display: flex;
+	width: 100%;
+	cursor: pointer;
+
+	input, span {
+		position: relative;
+		width: 100%;
+		background: none;
+		border: none;
+		border-bottom: 2px solid black;
+		margin: 3px 0 5px 0;
+	}
+
+	&:not(:hover) &-del-btn, &:not(:hover) &-edit-btn {
+		display: none;
+	}
+}

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { addTask } from '../actions'
+import { addTask, deleteBoard } from '../actions'
 
 const TaskAdder = ({ dispatch, boardId }) => {  
   let input
@@ -18,6 +18,7 @@ const TaskAdder = ({ dispatch, boardId }) => {
         <input ref={node => (input = node)} />
         <button type="submit">Add Task</button>
       </form>
+      <div className="board-delete" onClick={e => { dispatch(deleteBoard(boardId)) }}>X</div>
     </div>
   )
 }
