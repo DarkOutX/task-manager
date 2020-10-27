@@ -2,7 +2,7 @@ import svgDelete from "./../assets/svg/del.svg"
 import Task from './Task'
 import TaskAdder from './TaskAdder'
 import { connect } from 'react-redux'
-import { deleteBoard, moveTask, renameBoard } from '../actions'
+import { deleteBoard, moveTask, renameBoard, deleteBoardTasks } from '../actions'
 
 const Board = ({ id, name, tasks, dispatch }) => {
 
@@ -15,15 +15,20 @@ const Board = ({ id, name, tasks, dispatch }) => {
 	}
 	const allowDrop = (e) => {
 		e.preventDefault();	
+		handleDrop();
 	}
 
   return (
-    <div className="board" onDrop={handleDrop} onDragOver={allowDrop}>
+    <div 
+    	className="board" 
+    	onDrop={handleDrop} 
+    	onDragOver={allowDrop}
+	>
     	<div 
     		className="board-btn-delete"
-    		onClick={(e)=>{ dispatch(deleteBoard(id)) }}
+    		onClick={(e)=>{ dispatch(deleteBoard(id)); dispatch(deleteBoardTasks(id)) }}
 		>
-			<img src={svgDelete} />
+			<img src={svgDelete} alt="Delete Board" />
 		</div>
 		<input
 			className="board-title"
@@ -34,7 +39,7 @@ const Board = ({ id, name, tasks, dispatch }) => {
     	<ul>
 	    	{tasks.map(task => (
 	    		<Task 
-	    			key={task.id} 
+	    			key={task.id + "" + id} 
 	    			{...task}
 	    			isEditing={true}
 	    			onClick={(e) => {}}

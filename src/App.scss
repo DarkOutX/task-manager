@@ -106,8 +106,12 @@ body {
 
 	&-del-btn, &-edit-btn {
 		position: relative;
+		padding: 0;
+		margin: 0;
 		margin-right: 3px;
 		pointer-events: all;
+		background: none;
+		border: 0;
 
 		img {
 			width: 13pt;

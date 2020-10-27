@@ -1,13 +1,12 @@
 // import React from 'react';
 import svgDelete from "./../assets/svg/del-circled.svg"
 import svgEdit from "./../assets/svg/edit.svg"
-import svgAdd from "./../assets/svg/add-circled.svg"
 import { connect } from 'react-redux'
 import { deleteTask, editTask, toggleTask } from '../actions'
 
 // import "./MyComponent.css"
 
-const Task = ({ id, text, done, dispatch }) => {
+const Task = ({ id, boardId, text, done, dispatch }) => {
   let input;
   const toggleEdit = (e) => {
   	if(input.disabled) {
@@ -20,7 +19,8 @@ const Task = ({ id, text, done, dispatch }) => {
   }
   const handleDrag = (e) => {
 	  window.draggingTask = {
-      id: id
+      id: id,
+      sourceId: boardId
     }
   }
   return (
@@ -40,12 +40,12 @@ const Task = ({ id, text, done, dispatch }) => {
 		    }}
 		    disabled
 		  />
-    	<a className="task-edit-btn" onClick={toggleEdit}>
-        <img src={svgEdit} />
-      </a>
-    	<a className="task-del-btn" onClick={(e)=>{ dispatch(deleteTask(id)) }}>
-        <img src={svgDelete} />
-      </a>
+    	<button className="task-edit-btn" onClick={toggleEdit}>
+        <img src={svgEdit} alt="Edit Task" />
+      </button>
+    	<button className="task-del-btn" onClick={(e)=>{ dispatch(deleteTask(id)) }}>
+        <img src={svgDelete} alt="Delete Task" />
+      </button>
     </li>
   );
 }

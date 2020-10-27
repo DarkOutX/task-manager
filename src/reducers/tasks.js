@@ -11,6 +11,8 @@ const tasks = (state = [], action) => {
       ]
     case 'DELETE_TASK':
       return state.filter(t => t.id !== action.id);
+    case 'DELETE_BOARD_TASKS':
+      return state.filter(t => t.boardId !== action.boardId);
     case 'EDIT_TASK':
       return state.map(t =>
         t.id === action.id ? { ...t, text: action.text } : t
