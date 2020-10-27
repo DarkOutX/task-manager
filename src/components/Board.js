@@ -1,3 +1,4 @@
+import svgDelete from "./../assets/svg/del.svg"
 import Task from './Task'
 import TaskAdder from './TaskAdder'
 import { connect } from 'react-redux'
@@ -22,7 +23,7 @@ const Board = ({ id, name, tasks, dispatch }) => {
     		className="board-btn-delete"
     		onClick={(e)=>{ dispatch(deleteBoard(id)) }}
 		>
-			X
+			<img src={svgDelete} />
 		</div>
 		<input
 			className="board-title"

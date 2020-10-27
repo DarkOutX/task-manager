@@ -1,3 +1,4 @@
+import svgAdd from "./../assets/svg/add-circled.svg"
 import { connect } from 'react-redux'
 import { addTask, deleteBoard } from '../actions'
 
@@ -16,7 +17,9 @@ const TaskAdder = ({ dispatch, boardId }) => {
         }}
       >
         <input ref={node => (input = node)} />
-        <button type="submit">ADD TASK</button>
+        <button type="submit">
+        	<img src={svgAdd} />
+    	</button>
       </form>
     </div>
   )
