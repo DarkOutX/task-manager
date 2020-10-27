@@ -15,6 +15,10 @@ const tasks = (state = [], action) => {
       return state.map(t =>
         t.id === action.id ? { ...t, text: action.text } : t
       )
+    case 'MOVE_TASK':
+      return state.map(t =>
+        t.id === action.id ? { ...t, boardId: action.boardId } : t
+      )
     case 'TOGGLE_TASK':
       return state.map(t =>
         t.id === action.id ? { ...t, done: !t.done } : t

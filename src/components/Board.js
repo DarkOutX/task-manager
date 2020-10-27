@@ -1,11 +1,21 @@
 import Task from './Task'
 import TaskAdder from './TaskAdder'
 import { connect } from 'react-redux'
-import { deleteBoard } from '../actions'
+import { deleteBoard, moveTask } from '../actions'
 
 const Board = ({ id, name, tasks, dispatch }) => {
+
+	const handleDrop = (e) => {
+		if(!window.draggingTask) return;
+		let taskId = window.draggingTask.id;
+		dispatch(moveTask(taskId, id));
+	}
+	const allowDrop = (e) => {
+		e.preventDefault();	
+	}
+
   return (
-    <div className="board">
+    <div className="board" onDrop={handleDrop} onDragOver={allowDrop}>
     	<div 
     		className="board-delete-btn"
     		onClick={(e)=>{ dispatch(deleteBoard(id)) }}

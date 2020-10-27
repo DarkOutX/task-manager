@@ -19,6 +19,11 @@ export const toggleTask = (id) => ({
   type: 'TOGGLE_TASK',
   id,
 })
+export const moveTask = (id, boardId) => ({
+  type: 'MOVE_TASK',
+  boardId,
+  id,
+})
 
 let nextBoardId = 0
 export const addBoard = (name) => ({

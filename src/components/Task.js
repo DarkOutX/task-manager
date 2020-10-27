@@ -13,8 +13,13 @@ const Task = ({ id, text, done, dispatch }) => {
   const toggleDone = (e) => {
   	if(e.target.tagName !== "A" && input.disabled) dispatch(toggleTask(id, input.value)) 
   }
+  const handleDrag = (e) => {
+	  window.draggingTask = {
+      id: id
+    }
+  }
   return (
-    <li className="task" onClick={toggleDone}>
+    <li className="task" onClick={toggleDone} draggable onDragStart={handleDrag}>
     	<input 
     		ref={node => (input = node)} 
     		value={text}
