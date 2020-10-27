@@ -16,7 +16,7 @@ const TaskAdder = ({ dispatch, boardId }) => {
         }}
       >
         <input ref={node => (input = node)} />
-        <button type="submit">Add Task</button>
+        <button type="submit">ADD TASK</button>
       </form>
     </div>
   )

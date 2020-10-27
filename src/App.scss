@@ -9,6 +9,7 @@ body {
 	position: relative;
 	display: flex;
 	height: 90%;
+	width: fit-content;
 	margin-top: 5%;
 	padding: 0 3%;
 
@@ -19,8 +20,8 @@ body {
 		width: 20vw;
 		min-width: 260px;
 		height: 100%;
-		padding: 30px;
-		margin: 20px 40px;
+		padding: 25px 30px;
+		margin: 15px 25px;
 		border-radius: 15px;
 		background: rgb(0,130,200);
 
@@ -28,13 +29,45 @@ body {
 		-moz-box-shadow: 0px 0px 33px 13px rgba(0,0,0,0.75);
 		box-shadow: 0px 0px 33px 13px rgba(0,0,0,0.75);
 
-		h4 {
-			padding: 2px 0;
-			margin: 0;
+		&-btn-delete {
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			right: 14px;
+			top: 12px;
+			cursor: pointer;
+			transition: .3s;
+
+			&:hover {
+				transform: scale(1.4);
+			}
+
 		}
 
-		.task-adder {
-			position: relative;
+		&-title {
+			background: none;
+			border: none;
+			font-size: 16pt;
+		}
+
+		&.adder {
+			padding: 0;
+			overflow: hidden;
+
+			button {
+				padding: 10px;
+				background: none;
+				border: none;
+				transition: .3s;
+				line-height: 14pt;
+				font-size: 12pt;
+
+				&:hover {
+					font-size: 14pt;
+					background: rgb(0,150,220);	
+				}
+			}
 		}
 	}
 }
@@ -44,7 +77,7 @@ body {
 	display: flex;
 	width: 100%;
 	cursor: pointer;
-	border-bottom: 2px solid black;
+	// border-bottom: 2px solid black;
 	margin: 8px 0;
 
 	input, span {
@@ -57,5 +90,40 @@ body {
 
 	&:not(:hover) &-del-btn, &:not(:hover) &-edit-btn {
 		display: none;
+	}
+
+	&-adder {
+		position: relative;
+		display: flex;
+		white-space: nowrap;
+		margin-top: 10px;
+
+		form {
+			position: relative;
+			display: flex;
+
+			input, button {
+				position: relative;
+				display: flex;
+				background: none;
+				border: none;
+				transition: .3s;
+			}
+
+			input {
+				width: 70%;
+				border-bottom: 1px solid black;
+			}
+
+			button {
+				width: 30%;
+				justify-content: center;
+				align-items: center;
+
+				&:hover {
+					font-weight: 900;
+				}
+			}
+		}
 	}
 }

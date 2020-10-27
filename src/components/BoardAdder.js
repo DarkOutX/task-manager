@@ -3,7 +3,7 @@ import { addBoard } from '../actions'
 
 const BoardAdder = ({ dispatch }) => {
   return (
-    <div>
+    <div className="board adder">
       <button onClick={e => { dispatch(addBoard("New Board")) }}>
         + Добавить список
       </button>

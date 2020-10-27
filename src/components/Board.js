@@ -19,12 +19,13 @@ const Board = ({ id, name, tasks, dispatch }) => {
   return (
     <div className="board" onDrop={handleDrop} onDragOver={allowDrop}>
     	<div 
-    		className="board-delete-btn"
+    		className="board-btn-delete"
     		onClick={(e)=>{ dispatch(deleteBoard(id)) }}
 		>
 			X
 		</div>
 		<input
+			className="board-title"
     		ref={node => (input = node)} 
     		value={name}
     		onChange={(e)=>{ dispatch(renameBoard(id, input.value)) }}
