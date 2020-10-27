@@ -18,7 +18,6 @@ const TaskAdder = ({ dispatch, boardId }) => {
         <input ref={node => (input = node)} />
         <button type="submit">Add Task</button>
       </form>
-      <div className="board-delete" onClick={e => { dispatch(deleteBoard(boardId)) }}>X</div>
     </div>
   )
 }
