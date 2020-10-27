@@ -1,9 +1,11 @@
 import Task from './Task'
 import TaskAdder from './TaskAdder'
 import { connect } from 'react-redux'
-import { deleteBoard, moveTask } from '../actions'
+import { deleteBoard, moveTask, renameBoard } from '../actions'
 
 const Board = ({ id, name, tasks, dispatch }) => {
+
+	let input;
 
 	const handleDrop = (e) => {
 		if(!window.draggingTask) return;
@@ -22,7 +24,11 @@ const Board = ({ id, name, tasks, dispatch }) => {
 		>
 			X
 		</div>
-    	<h4>{name}</h4>
+		<input
+    		ref={node => (input = node)} 
+    		value={name}
+    		onChange={(e)=>{ dispatch(renameBoard(id, input.value)) }}
+		/>
     	<ul>
 	    	{tasks.map(task => (
 	    		<Task 

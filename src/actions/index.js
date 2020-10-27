@@ -35,3 +35,8 @@ export const deleteBoard = (id) => ({
   type: 'DELETE_BOARD',
   id
 })
+export const renameBoard = (id, name) => ({
+  type: 'RENAME_BOARD',
+  id,
+  name
+})

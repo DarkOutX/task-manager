@@ -28,7 +28,7 @@ const Task = ({ id, text, done, dispatch }) => {
 		      textDecoration: done ? 'line-through' : 'none'
 		    }}
 		    disabled
-		/>
+		  />
     	<a className="task-edit-btn" onClick={toggleEdit}>ED</a>
     	<a className="task-del-btn" onClick={(e)=>{ dispatch(deleteTask(id)) }}>DEL</a>
     </li>

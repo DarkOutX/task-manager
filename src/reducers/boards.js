@@ -10,6 +10,10 @@ const boards = (state = [], action) => {
       ]
     case 'DELETE_BOARD':
       return state.filter(t => t.id != action.id);
+    case 'RENAME_BOARD':
+      return state.map(t =>
+        t.id === action.id ? { ...t, name: action.name } : t
+      )
     default:
       return state
   }
